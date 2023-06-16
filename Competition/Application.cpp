@@ -81,7 +81,14 @@ void Application::InscrireUnConcurrent()
 /// </summary>
 void Application::AfficherParNom()
 {
-	//@TODO à compléter.
+	concurrentsInscrits.sort([](const Concurrent& a, const Concurrent& b) {
+		return a.GetNom() < b.GetNom();
+	});
+
+	cout << "Liste des concurrents inscrits par ordre alphabétique des noms : " << endl;
+	for (const Concurrent& concurrent : concurrentsInscrits) {
+		cout << "Nom : " << concurrent.GetNom() << ", Dossard : " << concurrent.GetDossard() << endl;
+	}
 }
 
 /// <summary>
@@ -89,7 +96,16 @@ void Application::AfficherParNom()
 /// </summary>
 void Application::AfficherParDossard()
 {
-	//@TODO à compléter.
+	concurrentsInscrits.sort([](const Concurrent& a, const Concurrent& b)
+		{
+			return a.GetDossard() < b.GetDossard();
+		});
+
+	cout << "Liste des concurrents inscrits par ordre de dossards : " << endl;
+	for (const Concurrent& concurrent : concurrentsInscrits)
+	{
+		cout << "Dossard : " << concurrent.GetDossard() << ", Nom : " << concurrent.GetNom() << endl;
+	}
 }
 
 /// <summary>
