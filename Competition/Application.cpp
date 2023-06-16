@@ -81,8 +81,9 @@ void Application::InscrireUnConcurrent()
 /// </summary>
 void Application::AfficherParNom()
 {
-	concurrentsInscrits.sort([](const Concurrent& a, const Concurrent& b) {
-		return a.GetNom() < b.GetNom();
+	concurrentsInscrits.sort([](const Concurrent& a, const Concurrent& b)
+		{
+			return a.GetNom() < b.GetNom();
 		});
 
 	cout << "Liste des concurrents inscrits par ordre alphabétique des noms : " << endl;
