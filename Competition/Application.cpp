@@ -56,7 +56,24 @@ void Application::InitialiserCompetition()
 /// </summary>
 void Application::InscrireUnConcurrent()
 {
-	//@TODO à compléter.
+	if (dossardsPourAffectation.empty()) {
+		cout << "Il n'y a plus de dossard disponible !" << endl;
+		return;
+	}
+
+	string nom;
+	cout << "Saisir le nom du concurrent : ";
+	cin >> nom;
+
+	int index = hasard(1, dossardsPourAffectation.size());
+	int dossard = dossardsPourAffectation[index];
+	dossardsPourAffectation.erase(dossardsPourAffectation.begin() + index);
+	
+	Concurrent concurrent(nom, dossard);
+	concurrentsInscrits.push_back(concurrent);
+
+	cout << "Concurrent inscrit : " << nom << " avec le numéro de dossard : " << dossard << endl;
+	cout << "Nombre de dossards disponibles : " << dossardsPourAffectation.size() << endl;
 }
 
 /// <summary>
