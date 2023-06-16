@@ -140,7 +140,17 @@ void Application::NoterConcurrents()
 /// </summary>
 void Application::AfficherResultats()
 {
-	//@TODO à compléter.
+	cout << "Liste des résultats" << endl;
+	for (auto it = resultats.rbegin(); it != resultats.rend(); ++it)
+	{
+		int score = it->first;
+		const Concurrent& concurrent = it->second;
+
+		cout << "Score : " << score << endl;
+		cout << "Dossard : " << concurrent.GetDossard() << endl;
+		cout << "Nom : " << concurrent.GetNom() << endl;
+		cout << endl;
+	}
 }
 
 /// <summary>
