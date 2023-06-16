@@ -68,7 +68,7 @@ void Application::InscrireUnConcurrent()
 	int index = hasard(0, dossardsPourAffectation.size());
 	int dossard = dossardsPourAffectation[index];
 	dossardsPourAffectation.erase(dossardsPourAffectation.begin() + index);
-	
+
 	Concurrent concurrent(nom, dossard);
 	concurrentsInscrits.push_back(concurrent);
 
@@ -83,7 +83,7 @@ void Application::AfficherParNom()
 {
 	concurrentsInscrits.sort([](const Concurrent& a, const Concurrent& b) {
 		return a.GetNom() < b.GetNom();
-	});
+		});
 
 	cout << "Liste des concurrents inscrits par ordre alphabétique des noms : " << endl;
 	for (const Concurrent& concurrent : concurrentsInscrits) {
@@ -167,7 +167,7 @@ void Application::Run()
 		menu.Affiche();
 		choix = menu.SaisirEntierEntre(1, 6);
 
-		switch(choix)	//  Réalise l'action choisie par l'utilisateur
+		switch (choix)	//  Réalise l'action choisie par l'utilisateur
 		{
 		case 1:
 			InscrireUnConcurrent();
