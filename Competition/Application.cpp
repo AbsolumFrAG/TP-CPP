@@ -65,7 +65,7 @@ void Application::InscrireUnConcurrent()
 	cout << "Saisir le nom du concurrent : ";
 	cin >> nom;
 
-	int index = hasard(1, dossardsPourAffectation.size());
+	int index = hasard(0, dossardsPourAffectation.size());
 	int dossard = dossardsPourAffectation[index];
 	dossardsPourAffectation.erase(dossardsPourAffectation.begin() + index);
 	
@@ -118,7 +118,21 @@ void Application::AfficherParDossard()
 /// </summary>
 void Application::NoterConcurrents()
 {
-	//@TODO à compléter.
+	if (concurrentsInscrits.empty()) {
+		cout << "Aucun concurrent inscrit !" << endl;
+		return;
+	}
+
+	Concurrent concurrent = concurrentsInscrits.front();
+	concurrentsInscrits.pop_front();
+
+	int score = hasard(0, 11);
+	concurrent.SetScore(score);
+
+	resultats.insert(make_pair(score, concurrent));
+
+	cout << "Concurrent noté - Score : " << score << ", Dossard : " << concurrent.GetDossard()
+		<< ", Nom : " << concurrent.GetNom() << endl;
 }
 
 /// <summary>
